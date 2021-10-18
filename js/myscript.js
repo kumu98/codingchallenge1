@@ -8,8 +8,9 @@ function itemTotal(){
         let priceElement = document.getElementsByClassName('price')[i];
         let qtyElement = document.getElementsByClassName('qtynumber')[i];
         // console.log(priceElement,qtyElement);
-        // parseFloar will turn any string into a float - a number with decimal points after it
-        let price = parseFloat(priceElement.innerText.replace('$',""));
+        // parseFloat will turn any string into a float - a number with decimal points after it
+        let numberPrice = priceElement.innerText.replace('$',"")
+        let price = parseFloat(numberPrice).toFixed(2);
         let quantity = qtyElement.value;
         total = (price * quantity);
         document.getElementsByClassName("total")[i].innerText = "$"+ total;
@@ -36,7 +37,7 @@ function updateCartTotal(){
         let qtyElement = cartRow.getElementsByClassName('qtynumber')[0];
         // console.log(priceElement,qtyElement);
         // turn any string into a float - a number with decimal points after it
-        let price = parseFloat(priceElement.innerText.replace('$',""));
+        let price = parseFloat(priceElement.innerText.replace('$',"")).toFixed(2);
         let quantity = qtyElement.value;
         total = total + (price * quantity);
     }
